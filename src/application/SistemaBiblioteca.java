@@ -3,6 +3,8 @@ package application;
 import entities.Emprestimo;
 import entities.Livro;
 import entities.Usuario;
+import entities.Aluno;
+import entities.Professor;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -53,18 +55,33 @@ public class SistemaBiblioteca {
                     String nome = input.nextLine();
                     System.out.print("CPF: ");
                     String cpf = input.nextLine();
-                    System.out.print("Matrícula: ");
-                    String matricula = input.nextLine();
                     System.out.print("E-mail: ");
                     String email = input.nextLine();
                     System.out.print("Tipo (Aluno/Professor): ");
-                    String tipo = input.nextLine();
+                    String tipoOpcao = input.nextLine().trim();
 
                     if (usuarios.containsKey(cpf)) {
                         System.out.println("Usuário já cadastrado.");
+                    } else if (tipoOpcao.equalsIgnoreCase("Aluno")) {
+                        System.out.print("Matrícula: ");
+                        String matricula = input.nextLine();
+                        System.out.print("Curso: ");
+                        String curso = input.nextLine();
+                        System.out.print("Semestre: ");
+                        int semestre = Integer.parseInt(input.nextLine().trim());
+                        usuarios.put(cpf, new Aluno(nome, matricula, cpf, email, curso, semestre));
+                        System.out.println("Aluno cadastrado com sucesso.");
+                    } else if (tipoOpcao.equalsIgnoreCase("Professor")) {
+                        System.out.print("Registro: ");
+                        String registro = input.nextLine();
+                        System.out.print("Departamento: ");
+                        String departamento = input.nextLine();
+                        System.out.print("Titulação: ");
+                        String titulacao = input.nextLine();
+                        usuarios.put(cpf, new Professor(nome, registro, cpf, email, departamento, titulacao));
+                        System.out.println("Professor cadastrado com sucesso.");
                     } else {
-                        usuarios.put(cpf, new Usuario(nome, matricula, cpf, email, tipo));
-                        System.out.println("Usuário cadastrado com sucesso.");
+                        System.out.println("Tipo inválido. Digite Aluno ou Professor.");
                     }
                     break;
 
