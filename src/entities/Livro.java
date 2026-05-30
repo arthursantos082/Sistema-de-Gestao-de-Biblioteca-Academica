@@ -38,6 +38,11 @@ public class Livro {
         return isbn;
     }
 
+    // Redundante, o enunciado nao pede...
+    public int getAno() {
+        return ano;
+    }
+
     public boolean isDisponivel() {
         return disponivel;
     }
@@ -58,6 +63,6 @@ public class Livro {
         System.out.println("ISBN: " + isbn);
         System.out.println("Ano: " + ano);
         System.out.println("Editora: " + editora);
-        System.out.println("Disponível: " + disponivel);
+        System.out.println("Disponível: " + (disponivel ? "Sim" : "Não"));
     }
 }

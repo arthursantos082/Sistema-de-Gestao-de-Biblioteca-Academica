@@ -8,10 +8,8 @@ public class Emprestimo {
     private String dataEmprestimo;
     private String status;
 
-    // mantemos o encapsulamento e utilizamos objetos das classes como parametros na realizacao do emprestimo
     public Emprestimo(int numeroEmprestimo, Usuario usuario, Livro livro, String dataEmprestimo) {
 
-        // retorna disponibilidade do livro dentro do metodo construtor
         if (!livro.isDisponivel()) {
             System.out.println("Livro indisponível para empréstimo.");
             return;
@@ -21,10 +19,10 @@ public class Emprestimo {
         this.usuario = usuario;
         this.livro = livro;
         this.dataEmprestimo = dataEmprestimo;
-        // define o status antes para que nao enchamos o codigo de ifs inuteis
         this.status = "Ativo";
 
         livro.emprestarLivro();
+        System.out.println("Empréstimo nº " + numeroEmprestimo + " realizado com sucesso.");
     }
 
     public int getNumeroEmprestimo() {
@@ -47,22 +45,20 @@ public class Emprestimo {
         return status;
     }
 
-    // principal metodo utilizado no emprestimo
     public void devolverLivro() {
-        // utiliza-se equals em checagem de Strings
         if (status.equals("Ativo")) {
             status = "Devolvido";
             livro.devolverLivro();
             System.out.println("Livro devolvido com sucesso.");
         } else {
-            System.out.println("Este empréstimo já foi realizado.");
+            System.out.println("Este empréstimo já foi encerrado.");
         }
     }
 
     public void exibirInformacoes() {
         System.out.println("Número do empréstimo: " + numeroEmprestimo);
-        System.out.println("Usuário: " + usuario.getNome());
-        System.out.println("Livro: " + livro.getTitulo());
+        System.out.println("Usuário: " + usuario.getNome() + " | Matrícula: " + usuario.getMatricula());
+        System.out.println("Livro: " + livro.getTitulo() + " | ISBN: " + livro.getIsbn());
         System.out.println("Data: " + dataEmprestimo);
         System.out.println("Status: " + status);
     }
