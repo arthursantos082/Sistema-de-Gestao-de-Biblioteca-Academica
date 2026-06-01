@@ -1,47 +1,108 @@
-# Sistema de Gestão de Biblioteca Acadêmica 
-## 1. Objetivo Geral
+# 📚 Sistema de Gestão de Biblioteca Acadêmica
 
- Desenvolver um sistema orientado a objetos utilizando a linguagem Java, com foco na gestão de uma biblioteca acadêmica. O sistema deverá aplicar os principais conceitos da Programação Orientada a Objetos (POO) e incluir uma interface textual (console) ou gráfica opcional (Swing ou web) , permitindo que usuários realizem consultas, empréstimos e devoluções de livros de forma funcional e organizada.
+Sistema desenvolvido em Java com foco na aplicação de conceitos de **Programação Orientada a Objetos (POO)**, simulando o funcionamento de uma biblioteca universitária. O sistema permite o gerenciamento completo de acervo, usuários, empréstimos e devoluções via interface em console.
 
+---
 
-## 2. Descrição Geral do Sistema
+## ✨ Funcionalidades
 
-    O sistema simula o funcionamento de uma biblioteca universitária. Ele deverá permitir que:
+- **Cadastro de livros** — título, autor, ISBN, ano de publicação e editora
+- **Cadastro de usuários** — alunos e professores, com nome, matrícula, CPF e e-mail
+- **Consulta de disponibilidade** — verificação em tempo real se um livro está disponível
+- **Empréstimos** — registro com número do empréstimo, usuário, livro(s), data e status
+- **Devoluções** — atualização automática do status do empréstimo e do exemplar
+- **Listagem do acervo** — exibe ISBN, título, autor, editora e status de cada livro
 
-    O bibliotecário cadastre usuários da biblioteca (alunos e professores), gerencie o acervo de livros e realize operações de empréstimo e devolução;
-    As informações sejam armazenadas e consultadas em tempo de execução utilizando estruturas de dados baseadas em Arrays ou Collections (como ArrayList e HashMap) ou com banco de dados.
+---
 
-## 3. Requisitos Funcionais
+## 🛠️ Tecnologias
 
-O sistema deverá contemplar, no mínimo, as seguintes funcionalidades:
+| Tecnologia | Detalhe |
+|---|---|
+| Linguagem | Java (JDK 25) |
+| Paradigma | Programação Orientada a Objetos |
+| Estruturas de dados | `HashMap` |
+| Interface | Console (texto) |
+| IDE recomendada | IntelliJ IDEA, Eclipse ou VS Code |
 
-✅ Cadastro de livros: título, autor, ISBN, ano e editora.
+---
 
-✅ Cadastro de usuários: nome, matrícula, tipo (aluno ou professor), CPF e e-mail.
+## 🏗️ Estrutura do Projeto
 
-✅ Consulta de disponibilidade de livros.
+```
+Sistema-de-Gestao-de-Biblioteca-Academica/
+├── src/
+│   └── (classes Java do sistema)
+├── .idea/                  # Configurações do IntelliJ IDEA
+├── .gitignore
+├── LICENSE
+└── README.md
+```
 
-✅ Empréstimos: número do empréstimo, usuário, livro(s), data e status do empréstimo.
+---
 
-✅ Devolução de livros: atualização do status do empréstimo e da disponibilidade do exemplar.
+## 🧩 Modelagem (UML)
 
-✅ Listagem de livros: ISBN, título, autor, editora e status (disponível ou emprestado).
+O projeto segue a seguinte estrutura de classes:
 
-## 4. Modelagem UML
+```
+Usuario (abstrata)
+├── Aluno
+└── Professor
 
-Os seguintes diagramas devem ser incluídos no projeto:
+Livro
+Emprestimo
+```
 
-    Diagrama de Casos de Uso: deve contemplar o ator Bibliotecário e suas interações com o sistema.
-    Diagrama de Classes: deve conter, no mínimo, as seguintes classes:
-    Livro
-    Usuario (classe base), Aluno, Professor
-    Emprestimo
-    (Opcional) Diagrama de Sequência: para as operações de empréstimo e devolução.
+- **`Usuario`** — classe base com atributos comuns a alunos e professores
+- **`Aluno`** e **`Professor`** — herdam de `Usuario`, com atributos específicos
+- **`Livro`** — representa um exemplar do acervo, com controle de disponibilidade
+- **`Emprestimo`** — associa um usuário a um ou mais livros, com data e status
 
-## 5. Requisitos Técnicos
+---
 
-    Linguagem: Java (JDK 8 ou superior)
-    Paradigma: Programação Orientada a Objetos
-    IDE sugeridas: BlueJ, Eclipse, IntelliJ IDEA ou Visual Studio Code
-    Interface: Texto (console) ou Gráfica (Swing) ou interface web.
+## 🚀 Como executar
 
+### Pré-requisitos
+
+- [JDK 8 ou superior](https://www.oracle.com/java/technologies/downloads/) instalado
+- Uma IDE Java (IntelliJ IDEA, Eclipse, BlueJ ou VS Code com extensão Java)
+
+### Passos
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/arthursantos082/Sistema-de-Gestao-de-Biblioteca-Academica.git
+
+# 2. Abra o projeto na sua IDE preferida
+
+# 3. Compile e execute a classe principal (Main ou equivalente)
+```
+
+> Se estiver usando o terminal com `javac`:
+> ```bash
+> cd src
+> javac *.java
+> java SistemaBiblioteca
+> ```
+
+---
+
+## 📋 Requisitos do Sistema
+
+- Java JDK 8 ou superior
+- Sistema operacional: Windows, Linux ou macOS
+- Sem dependências externas
+
+---
+
+## 📄 Licença
+
+Distribuído sob a licença **GPL-3.0**. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+---
+
+## 👤 Autor
+
+**Arthur Santos**
+- GitHub: [@arthursantos082](https://github.com/arthursantos082)
